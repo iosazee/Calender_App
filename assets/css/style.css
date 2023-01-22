@@ -13,6 +13,14 @@ textarea {
   padding: 10px;
 }
 
+.timesegment,
+.textarea,
+.btnCtn {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
