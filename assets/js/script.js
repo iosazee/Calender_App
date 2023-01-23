@@ -51,7 +51,7 @@ const displayTimeBlocks = () => {
 
         let event = events[i] || ''
 
-        timeBlockCtn.prepend(`
+        timeBlockCtn.append(`
             <div class='row time-block'>
                 <div class='col-1 timesegment'>
                     ${timeSegment}
