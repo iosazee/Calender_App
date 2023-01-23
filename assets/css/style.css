@@ -85,3 +85,11 @@ p {
   text-align: center;
   margin: 8px;
 }
+
+.clearbtn {
+  border-radius: 16px;
+  margin: 16px;
+  font-size: 24px;
+  padding: 16px;
+  border-color: #ff6961;
+}
