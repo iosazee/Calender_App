@@ -44,10 +44,12 @@ textarea {
   border-top: 1px solid white;
 }
 
-.hour {
+.timesegment {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  justify-content: center;
+  align-items: center;
 }
 
 .past {
@@ -76,4 +78,10 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+p { 
+  font-size: 30px;
+  text-align: center;
+  margin: 8px;
 }

@@ -1,5 +1,8 @@
 let timeBlockCtn = $('.container')
+let events;
 let eventInput;
+let eventText
+let timeSegment;
 
 
 //set current date
@@ -16,17 +19,21 @@ const displayTimeBlocks = () => {
     let presentTime = moment().format('HH')
     let startHour = 9;
 //Get events added and saved to localstorage
-    let events = getEvents()
+    events = getEvents()
 
     timeBlockCtn.prepend("")
 
     if (!events.length) {
-        timeBlockCtn.prepend("<p>No events on your calender")
+        timeBlockCtn.prepend("<p>No events on your calender</p>")
+    }
+    else {
+        timeBlockCtn.prepend("<p>You have events on your calender</p>")
     }
 
     for (let i = 0; i <=8; i++) {
 
-        let timeSegment = moment().hour(startHour).format('h a')
+        timeSegment = moment().hour(startHour).format('HH')
+
         let eventCtnClass = ''
 
 
@@ -36,9 +43,11 @@ const displayTimeBlocks = () => {
         else if (presentTime > startHour) {
             eventCtnClass = 'past'
         }
-        else {
+        else if (presentTime < startHour) {
             eventCtnClass = 'future'
         }
+
+        timeSegment = moment().hour(startHour).format('ha')
 
         let event = events[i] || ''
 
@@ -71,15 +80,17 @@ const displayTimeBlocks = () => {
 
 }
 
+
+
 const addEvent = (e) => {
     let enterKey = e.keyCode === 13
 
     if (enterKey) {
-        console.log("add event")
+        console.log("event added")
 
-        let events = getEvents()
+        events = getEvents()
         eventInput = $('.textarea')
-        let eventText = eventInput.value
+        eventText = eventInput.value
         console.log(eventText)
 
         if (!eventText) {
@@ -92,8 +103,15 @@ const addEvent = (e) => {
     }
 }
 
+const saveEvents = () => {
+//if save btn clicked
+    events = getEvents()
+    events.push(eventText)
+    localStorage.setItem("events", JSON.stringify(events))
+}
+
 const getEvents = () => {
-    console.log("Get Events")
+    console.log("Get all events")
 
     return JSON.parse(localStorage.getItem("events")) || []
 }
