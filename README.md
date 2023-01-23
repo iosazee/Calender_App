@@ -8,14 +8,13 @@ Screenshot of the app
 
 <img src="./assets/img/calender-app.png"  width="500px" />
 
-
 ## Installation
 
 N/A
 
 ## Usage
 
-N/A
+Check out the deployed application on https://iosazee.github.io/Calender_App/
 
 ## Credits
 
