@@ -3,7 +3,7 @@ let events;
 let eventInput;
 let eventText
 let timeSegment;
-let bodyEl = $('body')
+let bodyEl = document.querySelector('body')
 
 
 //set current date
@@ -117,20 +117,29 @@ const getEvents = () => {
     return JSON.parse(localStorage.getItem("events")) || []
 }
 
-const clearEvents = () => {
-    bodyEl.append(`
-        <div class='text-center'>
+const displayclearBtn = () => {
+    bodyEl.insertAdjacentHTML(
+        "beforeend",
+
+        `<div class='text-center'>
             <button class='clearbtn btn-danger'>Clear all events</button>
         </div>
     `)
 
-    localStorage.clear()
 }
+
+
+
+bodyEl.addEventListener("click", (e) => {
+    if (e.target.matches("button")) {
+        localStorage.clear()
+    }
+})
 
 
 const initialize = () => {
     displayTimeBlocks()
-    clearEvents()
+    displayclearBtn()
 }
 
 initialize();
